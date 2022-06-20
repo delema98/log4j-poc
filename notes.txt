@@ -1,0 +1,1 @@
+https://www.fastly.com/de/blog/digging-deeper-into-log4shell-0day-rce-exploit-found-in-log4j

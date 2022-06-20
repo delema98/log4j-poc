@@ -1,4 +1,4 @@
-version: "3.9"
+version: "2.2" # or 3.9 (dependend on docker-compose version)
 services:
   cve-web:
     build: cve-web
@@ -12,18 +12,6 @@ services:
         ipv4_address: 172.16.238.10
     ports:
       - "8080:8080"
-  cve-neo:
-    build: cve-neo
-    hostname: neosvr
-    domainname: range.lab
-    environment:
-      - TOMCAT_USERNAME=bob
-      - TOMCAT_PASSWORD=3edc4rfv
-    networks:
-      cve-net:
-        ipv4_address: 172.16.238.12
-    ports:
-      - "8888:8080"
   cve-poc:
     build: cve-poc
     hostname: ldapsvr
@@ -31,7 +19,7 @@ services:
     environment:
       - POC_ADDR=172.16.238.11
       - POC_PORT=80
-      - LISTENER_ADDR=10.10.10.31
+      - LISTENER_ADDR=192.168.2.113
       - LISTENER_PORT=9001
     networks:
       cve-net:
@@ -46,10 +34,3 @@ networks:
       config:
         - subnet: 172.16.238.0/24
           gateway: 172.16.238.1
-
-# ldap
-# rmi
-# dns
-# nis
-# nds
-# corba
