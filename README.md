@@ -4,15 +4,14 @@
 
 ### Description
 
-The demo Tomcat 8 server on port 8080 has a vulnerable app (log4shell) deployed on it and the server also vulnerable via user-agent attacks.
+To demonstrate the log4j vulnerability two separate docker containers will be created. The first one (cve-web) contains a Tomcat 8 server which can be accessed by port 8080. This server has a vulnerable app (log4shell) deployed on it.
+The second container (cve-poc) is used to attack the vulnerable server. To communicate with the vulnerable server, it hosts a ldap server.
+
+---
 
 The remote exploit app in this demo is based on that found at <https://github.com/kozmer/log4j-shell-poc>
 
-This demo tomcat server (Tomcat 8.5.3, Java 1.8.0u51) has been reconfigued to use Log4J2 for logging - a non-standard configuration.
-
 The RMI exploit against the Tomcat 9 / Java 11 server is described here: <https://www.veracode.com/blog/research/exploiting-jndi-injections-java> (Jan 3, 2019) by Michael Stepankin
-
-The detection script will check for user-agent vulnerablities and is from here: <https://gist.github.com/byt3bl33d3r/46661bc206d323e6770907d259e009b6>
 
 ### Prerequisites
 
