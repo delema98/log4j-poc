@@ -21,7 +21,7 @@ This code requires Docker and Docker Compose
 ### Installation
 
 - edit docker-compose.yml file:
-  - #LISTENER_ADDR is the address of the 'nc' listener e.g. the docker host (local IP of the docker hostmachine)
+  - change value of #LISTENER_ADDR to the local IP of your docker hostmachine
 - build docker containers:
 
 ```
